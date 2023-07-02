@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="İnsanKaynaklarıModelStoreContainer" CdmEntityContainer="İnsanKaynaklarıEntities">
+    <EntitySetMapping Name="tblGörev">
+      <EntityTypeMapping TypeName="İnsanKaynaklarıModel.tblGörev">
+        <MappingFragment StoreEntitySet="tblGörev">
+          <ScalarProperty Name="GörevİD" ColumnName="GörevİD" />
+          <ScalarProperty Name="Görevadı" ColumnName="Görevadı" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblPersonel">
+      <EntityTypeMapping TypeName="İnsanKaynaklarıModel.TblPersonel">
+        <MappingFragment StoreEntitySet="TblPersonel">
+          <ScalarProperty Name="Personelİd" ColumnName="Personelİd" />
+          <ScalarProperty Name="Adı" ColumnName="Adı" />
+          <ScalarProperty Name="Soyadı" ColumnName="Soyadı" />
+          <ScalarProperty Name="Telno" ColumnName="Telno" />
+          <ScalarProperty Name="Tcno" ColumnName="Tcno" />
+          <ScalarProperty Name="Görev" ColumnName="Görev" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

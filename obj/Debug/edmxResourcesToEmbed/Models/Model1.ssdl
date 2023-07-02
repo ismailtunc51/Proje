@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="İnsanKaynaklarıModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblGörev">
+    <Key>
+      <PropertyRef Name="GörevİD" />
+    </Key>
+    <Property Name="GörevİD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Görevadı" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblPersonel">
+    <Key>
+      <PropertyRef Name="Personelİd" />
+    </Key>
+    <Property Name="Personelİd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adı" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyadı" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telno" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Tcno" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Görev" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TblPersonel_tblGörev">
+    <End Role="tblGörev" Type="Self.tblGörev" Multiplicity="1" />
+    <End Role="TblPersonel" Type="Self.TblPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGörev">
+        <PropertyRef Name="GörevİD" />
+      </Principal>
+      <Dependent Role="TblPersonel">
+        <PropertyRef Name="Görev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="İnsanKaynaklarıModelStoreContainer">
+    <EntitySet Name="tblGörev" EntityType="Self.tblGörev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblPersonel" EntityType="Self.TblPersonel" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TblPersonel_tblGörev" Association="Self.FK_TblPersonel_tblGörev">
+      <End Role="tblGörev" EntitySet="tblGörev" />
+      <End Role="TblPersonel" EntitySet="TblPersonel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

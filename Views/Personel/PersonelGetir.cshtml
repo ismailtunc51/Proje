@@ -1,0 +1,32 @@
+﻿@model İnsanK.Models.TblPersonel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_PersonelLayout.cshtml";
+}
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    <div style="margin-bottom:15px">
+        @Html.HiddenFor(y=>y.Personelİd)
+        @Html.LabelFor(x => x.Adı)
+        @Html.TextBoxFor(x => x.Adı, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.Soyadı)
+        @Html.TextBoxFor(x => x.Soyadı, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.Tcno)
+        @Html.TextBoxFor(x => x.Tcno, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.Telno)
+        @Html.TextBoxFor(x => x.Telno, new { @class = "form-control" })
+    </div>
+    <div style="margin-bottom:15px">
+        @Html.LabelFor(x => x.Görev)
+        @Html.TextBoxFor(x => x.Görev, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-success">Güncelle</button>
+}
+

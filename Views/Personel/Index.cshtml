@@ -1,0 +1,34 @@
+﻿@using İnsanK.Models;
+@model List<TblPersonel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PersonelLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Tc no</th>
+        <th>Tel no</th>
+        <th>görevi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Personelİd</td>
+            <td>@item.Adı</td>
+            <td>@item.Soyadı</td>   
+            <td>@item.Tcno</td>
+            <td>@item.Telno</td>          
+            <td>@item.tblGörev.Görevadı</td>
+            <td><a href="/Personel/PersonelSil/@item.Personelİd" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Personel/PersonelGetir/@item.Personelİd" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+  <a href="/Personel/PersonelEkle"class="btn btn-warning">Yeni Personel</a>
+

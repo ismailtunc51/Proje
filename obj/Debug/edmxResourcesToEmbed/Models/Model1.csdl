@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="İnsanKaynaklarıModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblGörev">
+    <Key>
+      <PropertyRef Name="GörevİD" />
+    </Key>
+    <Property Name="GörevİD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Görevadı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblPersonel" Relationship="Self.FK_TblPersonel_tblGörev" FromRole="tblGörev" ToRole="TblPersonel" />
+  </EntityType>
+  <EntityType Name="TblPersonel">
+    <Key>
+      <PropertyRef Name="Personelİd" />
+    </Key>
+    <Property Name="Personelİd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Soyadı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tcno" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Görev" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGörev" Relationship="Self.FK_TblPersonel_tblGörev" FromRole="TblPersonel" ToRole="tblGörev" />
+  </EntityType>
+  <Association Name="FK_TblPersonel_tblGörev">
+    <End Role="tblGörev" Type="Self.tblGörev" Multiplicity="1" />
+    <End Role="TblPersonel" Type="Self.TblPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGörev">
+        <PropertyRef Name="GörevİD" />
+      </Principal>
+      <Dependent Role="TblPersonel">
+        <PropertyRef Name="Görev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="İnsanKaynaklarıEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblGörev" EntityType="Self.tblGörev" />
+    <EntitySet Name="TblPersonel" EntityType="Self.TblPersonel" />
+    <AssociationSet Name="FK_TblPersonel_tblGörev" Association="Self.FK_TblPersonel_tblGörev">
+      <End Role="tblGörev" EntitySet="tblGörev" />
+      <End Role="TblPersonel" EntitySet="TblPersonel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

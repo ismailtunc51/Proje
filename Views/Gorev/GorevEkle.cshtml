@@ -1,0 +1,26 @@
+﻿@model İnsanK.Models.tblGörev
+@{
+    ViewBag.Title = "GorevEkle";
+    Layout = "~/Views/Shared/_PersonelLayout.cshtml";
+}
+
+@using (Html.BeginForm("GorevEkle", "Gorev", FormMethod.Post))
+{
+    <h2>GorevEkle</h2>
+    <br />
+
+    <form class="form-group" metod="post">
+        <div style="margin-bottom:15px">
+            
+            @Html.LabelFor(x => x.GörevİD)
+            @Html.TextBoxFor(x => x.GörevİD, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            @Html.LabelFor(x => x.Görevadı)
+            @Html.TextBoxFor(x => x.Görevadı, new { @class = "form-control" })
+        </div>
+
+        <button class="btn btn-info">Kaydet</button>
+    </form>
+}
+
